@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 class TwitterMessage extends React.Component {
   constructor(props) {
@@ -9,10 +9,15 @@ class TwitterMessage extends React.Component {
       value: ''
     };
   }
-  
-  
 
-   render() {
+  handleChange = (event) => {
+    this.setState({
+      value: event.target.value,
+      remainingChars: this.props.maxChars - event.target.value.length
+    })
+  }
+
+  render() {
     return (
       <div>
         <strong>Your message:</strong>
